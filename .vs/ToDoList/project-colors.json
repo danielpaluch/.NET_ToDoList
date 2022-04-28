@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4f248d8f-f4ae-4972-8077-05deca0a0381": {
+      "ProjectGuid": "4f248d8f-f4ae-4972-8077-05deca0a0381",
+      "DisplayName": "ToDoList",
+      "ColorIndex": 0
+    },
+    "0e563d9a-0e4f-4aec-b317-dd2099ce5a8a": {
+      "ProjectGuid": "0e563d9a-0e4f-4aec-b317-dd2099ce5a8a",
+      "DisplayName": "Models",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
