@@ -10,9 +10,7 @@ namespace ToDoList
     {
 
         public List<Task> taskList = new List<Task> {
-            new Task() { title = "Cleaning", description = "Only my room", isDone = false },
-            new Task() { title = "Hang out with friends", description = "Booked tickets to cinema", isDone = false },
-            new Task() { title = "Take shower", description = "Do it before meeting", isDone = true }
+            
         };
 
         public List<Task> GetTaskList()

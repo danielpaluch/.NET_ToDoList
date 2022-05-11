@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ToDoList
 {
     internal class Functions
     {
+        static string databaseFile = $"./database.txt";
         static List<Task> list = new List<Task>();
         static Storage informations = new Storage();
         public static void Start()
         {
+            
             list = informations.GetTaskList();
             Console.WriteLine("=== TO DO LIST ===");
             list.ForEach(task => {
@@ -35,7 +38,7 @@ namespace ToDoList
             Console.WriteLine("What you wanna do? \n\t Add Task (insert 1) " +
                 "\n\t Remove Task (insert 2) " +
                 "\n\t Done Task (insert 3)" +
-                "\n\t End (insert 4)");
+                "\n\t Save (insert 4)");
 
             Console.Write("Choose option: ");
             int option;
@@ -78,6 +81,7 @@ namespace ToDoList
             else if (option == 4)
             {
                 Console.Write("Thank you!");
+                SaveDatabase();
             }
         }
         static void Refresh()
@@ -85,6 +89,43 @@ namespace ToDoList
             Console.Clear();
             Start();
             ChooseOption();
+        }
+
+        public static void LoadDatabase()
+        {
+            
+            if (File.Exists(databaseFile))
+            {
+                Console.WriteLine("Found database");
+                string[] lines = File.ReadAllLines(databaseFile);
+                foreach (string line in lines)
+                {
+                    string[] data = line.Split(';');
+                    Task newTask = new Task()
+                    {
+                        title = data[0],
+                        description = data[1],
+                        isDone = (data[2]=="True") ? true : false,
+                    };
+                    informations.AddTaskToStorage(newTask);
+                }
+            }
+            else
+            {
+                File.Create(databaseFile);
+                Console.WriteLine("Database done");
+            }
+        }
+        static void SaveDatabase()
+        {
+            var listToSave = informations.GetTaskList();
+            using (StreamWriter writer = new StreamWriter(databaseFile))
+            {
+                foreach (Task task in listToSave)
+                {
+                    writer.WriteLine(task.title + ";" + task.description + ";" + task.isDone);
+                }
+            }
         }
     }
 }

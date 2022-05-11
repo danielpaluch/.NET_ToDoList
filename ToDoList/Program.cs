@@ -10,6 +10,7 @@ namespace ToDoList
     {
         static void Main(string[] args)
         {
+            Functions.LoadDatabase();
             Functions.Start();
             Functions.ChooseOption();
             Console.ReadKey();
