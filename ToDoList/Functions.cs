@@ -96,7 +96,7 @@ namespace ToDoList
             
             if (File.Exists(databaseFile))
             {
-                Console.WriteLine("Found database");
+                //Console.WriteLine("Found database");
                 string[] lines = File.ReadAllLines(databaseFile);
                 foreach (string line in lines)
                 {
@@ -113,7 +113,7 @@ namespace ToDoList
             else
             {
                 File.Create(databaseFile);
-                Console.WriteLine("Database done");
+                //Console.WriteLine("Database done");
             }
         }
         static void SaveDatabase()

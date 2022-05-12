@@ -15,6 +15,8 @@ namespace ToDoList
 
         public List<Task> GetTaskList()
         {
+            var newTaskList = taskList.OrderBy(x => x.isDone).ToList();
+            taskList = newTaskList;
             return taskList;
         }
         public void AddTaskToStorage(Task newTask)

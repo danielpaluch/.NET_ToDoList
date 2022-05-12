@@ -1,4 +1,5 @@
 Learn some C#;Finish course from udemy site;False
-Go out with dog;Only around my home;True
 Refuel car;Go to Orlen station;False
+Do homework;Math;False
+Go out with dog;Only around my home;True
 Clean my room;Do it before 2PM;True
